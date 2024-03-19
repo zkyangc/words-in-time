@@ -92,7 +92,7 @@ const Transcript = ({ vid }) => {
     <>
       <div class="caption-container">
         <span class="caption-text">
-          "<span class="highlight">Hi</span>, I'm Joe Biden."
+          <span class="highlight">Hi</span>, I'm Joe Biden.
         </span>
       </div>
     </>
