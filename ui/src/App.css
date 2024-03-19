@@ -1,85 +1,42 @@
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f1f1f1;
-}
-.navbar {
-  background-color: #f8f9fa;
-}
-.navbar-brand {
-  color: #ea4335;
-  font-weight: 700;
-}
-.nav-link {
-  color: #727272;
-}
-.btn-outline-success {
-  color: #198754;
-  border-color: #198754;
-}
-.btn-outline-success:hover {
-  background-color: #198754;
-  color: #fff;
-}
-.input-group-text {
-  background-color: #fff;
-  border-right: 0;
-}
-.form-control {
-  border-left: 0;
-}
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-}
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.video-caption {
-  background-color: #000;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  font-size: 1.2rem;
-  display: inline-block;
-  margin-top: 0.5rem;
-}
-.caption-container {
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
   text-align: center;
-  margin-top: 1rem;
 }
-.caption-text {
-  background-color: #212529;
-  color: #fff;
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  font-size: 1.5rem;
-  border-radius: 0.25rem;
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
 }
-.highlight {
-  color: #ffc107;
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
-.definition {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-top: 1rem;
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
-.word-links a {
-  color: #0d6efd;
-  text-decoration: none;
-  margin-right: 0.5rem;
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
-.word-links a:hover {
-  text-decoration: underline;
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
-.video-buttons {
-  text-align: center;
-  margin-top: 1rem;
+
+.card {
+  padding: 2em;
 }
-.video-buttons .btn {
-  margin: 0 0.5rem;
+
+.read-the-docs {
+  color: #888;
 }

@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { mockFetchSubtitleContent } from '../__mocks__/mockFetchSubtitleContent';
+import { useState, useEffect } from "react";
+import { mockFetchSubtitleContent } from "../__mocks__/mockFetchSubtitleContent";
 
 const parseVTTContent = (vttString) => {
   const captions = [];
   // Split the string by lines first
-  const lines = vttString.split('\n');
+  const lines = vttString.split("\n");
   let currentCaption = null;
 
   lines.forEach((line, index) => {
     // Check if line contains timestamp
-    if (line.includes('-->')) {
-      const [start, end] = line.split(' --> ');
+    if (line.includes("-->")) {
+      const [start, end] = line.split(" --> ");
       // Prepare to capture the text following the timestamp
       captions.push({ start, end, text: lines[index + 1] });
     }
@@ -25,7 +25,7 @@ function useYouTubePlayer(vid, onTimeUpdate) {
     let player;
     // Initialize YouTube Player
     function onYouTubeIframeAPIReady() {
-      player = new window.YT.Player('youtube-player', {
+      player = new window.YT.Player("youtube-player", {
         videoId: vid,
         events: {
           onReady: onPlayerReady,
@@ -35,9 +35,9 @@ function useYouTubePlayer(vid, onTimeUpdate) {
 
     if (!window.YT) {
       // Load YouTube Iframe API script
-      const tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      const firstScriptTag = document.getElementsByTagName('script')[0];
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName("script")[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
       // Assign global function for YouTube API to call
@@ -78,9 +78,9 @@ const Transcript = ({ vid }) => {
   useYouTubePlayer(vid, (currentTime) => {
     const newCurrentCaption = captions.find((caption) => {
       const startSeconds = Number(
-        caption.start.replace(':', '').replace('.', '')
+        caption.start.replace(":", "").replace(".", "")
       );
-      const endSeconds = Number(caption.end.replace(':', '').replace('.', ''));
+      const endSeconds = Number(caption.end.replace(":", "").replace(".", ""));
       const currentSeconds = Math.floor(currentTime * 100); // Convert to similar format
       return currentSeconds >= startSeconds && currentSeconds <= endSeconds;
     });
